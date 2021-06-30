@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
    before_action :authenticate_user!
    before_action :set_goal
-  before_action :set_todo, only: [:show, :edit, :update, :destroy, :sort]
+   before_action :set_todo, only: [:show, :edit, :update, :destroy, :sort]
 
 
  
@@ -36,7 +36,8 @@ class TodosController < ApplicationController
       @status = true
     else
       @status = false
-  end
+    end
+   end
 
   # DELETE /todos/1
   def destroy
@@ -59,6 +60,11 @@ class TodosController < ApplicationController
     def todo_params
       params.require(:todo).permit(:content, :goal_id, :position, :done)
     end
+    
+    def todo_params
+    params.require(:todo).permit(:content, :goal_id, :position, :done, tag_ids: [])
+  end
+
 end
-end
+
 

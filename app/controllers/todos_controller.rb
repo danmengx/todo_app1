@@ -57,12 +57,9 @@ class TodosController < ApplicationController
     end
 
     
-    def todo_params
-      params.require(:todo).permit(:content, :goal_id, :position, :done)
-    end
     
     def todo_params
-    params.require(:todo).permit(:content, :goal_id, :position, :done, tag_ids: [])
+    params.require(:todo).permit(:content, :goal_id, :position, :done, :Date ,tag_ids: [])
   end
 
 end

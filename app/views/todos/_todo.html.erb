@@ -1,3 +1,5 @@
+
+
 <div class="card mt-2 todo-card <%=" text-muted bg-light" if todo.done %>"
   data-model_name="<%= Todo.model_name.singular %>"
   data-goal_id="<%= todo.goal.id %>"
@@ -32,7 +34,10 @@
     </div>
     <div class="card-text">
       <small class="text-muted">
+        "作成日"
         <%= todo.created_at.strftime('%Y/%m/%d') %>
+        "期限"
+        <%= todo.Date %>
       </small>
       <div>
        <%= render partial: "todos/tag", collection: todo.tags, as: :tag %>

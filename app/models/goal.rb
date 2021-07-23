@@ -3,4 +3,9 @@ class Goal < ApplicationRecord
   has_many :todos, -> { order("done ASC, position ASC").includes(:goal) }, dependent: :destroy
 
   validates :title, presence: true
+  
+def start_time
+  self.Date
+  end
+  
 end

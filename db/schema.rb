@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_143859) do
+ActiveRecord::Schema.define(version: 2021_07_21_123548) do
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "Date"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
@@ -44,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_143859) do
     t.boolean "done", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "Date"
     t.index ["goal_id"], name: "index_todos_on_goal_id"
   end
 
@@ -56,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_143859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "company"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -19,6 +19,18 @@
          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
        </li>
 
+       <li class="nav-item">
+         <%= link_to "show", users_show_path, class: "nav-link" %>
+       </li>
+       
+       <li class="nav-item">
+         <%= link_to "Edit",edit_user_registration_path, class: "nav-link" %>
+       </li>
+       
+       <li class="nav-item">
+         <%= link_to "calender",blogs_index_path, class: "nav-link" %>
+       </li>
+       
      <% else %>
        <li class="nav-item">
          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
@@ -26,6 +38,8 @@
        <li class="nav-item">
          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
        </li>
+       
+       
      <% end %>
    </ul>
  </div>

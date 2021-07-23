@@ -12,6 +12,10 @@ class Todo < ApplicationRecord
 
  after_initialize :set_default, if: :new_record?
 
+  def start_time
+  self.Date
+  end
+  
  private
 
  def set_default

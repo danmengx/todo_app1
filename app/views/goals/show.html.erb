@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="show">
+<p>
+  <strong>タイトル</strong>
+  <%= @goal.title %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  
+</p>
+
+<p>
+  <strong>日時</strong>
+  <%= @goal.start_time.strftime("%m-%d") %>
+</p>
+
+
+<%= link_to(new_goal_todo_path(@goal), title: "New TODO", class: "btn px-0", remote: true) do %><i class="fas fa-plus align-middle"></i><% end %>
+
+<%= link_to '登録', new_goal_todo_path(@goal) ,remote: true %>
+
+        
+<div class="card-body px-2 pb-2 pt-0 overflow-auto todo-cards">
+　<%= render partial: "todos/todo", collection: @goal.todos, as: :todo %>
+</div>
+
+<%= link_to '編集', edit_goal_path(@goal) %>
+<%= link_to '消去',goal_path(@goal.id), method: :delete, data: { confirm: '本当に?' } %>
+<%= link_to '戻る', goals_path %>
+</div>

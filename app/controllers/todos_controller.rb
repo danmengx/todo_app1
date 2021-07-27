@@ -34,6 +34,7 @@ class TodosController < ApplicationController
     if @todo.update(todo_params)
       
       @status = true
+      redirect_to goal_path(@goal), notice:"編集しました"
     else
       @status = false
     end

@@ -2,6 +2,15 @@ class GoalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
 
+ 
+  
+
+
+
+  
+  
+  
+  
   # GET /goals
   def index
     @goals = current_user.goals.all
@@ -15,6 +24,10 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/edit
   def edit
+  end
+  
+  def show
+    
   end
 
   # POST /goals
@@ -32,6 +45,7 @@ class GoalsController < ApplicationController
   def update
     if @goal.update(goal_params)
       @status = true
+      redirect_to goals_path, notice:"編集しました"
     else
       @status = false
     end
@@ -40,7 +54,7 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   def destroy
     @goal.destroy
-    
+    redirect_to goals_path, notice:"削除しました"
   end
 
   private
@@ -54,4 +68,5 @@ class GoalsController < ApplicationController
     def goal_params
       params.require(:goal).permit(:title, :user_id,:Date)
     end
-end
+   
+  end

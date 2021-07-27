@@ -1,7 +1,21 @@
+<br>
+<div class="col-md-8">
+<%= month_calendar events: @goals do |date, blogs| %>
+  <%= date.day %>
+
+  <% blogs.each do |blog| %>
+    <div>
+      <%= link_to blog.title, blog %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
 
 
 <div class="goal-title-area px-3">
   <h1>Goals</h1>
+  
 
 
 
@@ -17,19 +31,5 @@
   <%= render @goals %>
 </div>
 
-<br>
-<div class="col-md-8">
-<%= month_calendar events: @goals do |date, blogs| %>
-  <%= date.day %>
 
-  <% blogs.each do |blog| %>
-    <div>
-      <%= link_to blog.title, blog %>
-    </div>
-  <% end %>
-<% end %>
-</div>
 
-<div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
-</div>

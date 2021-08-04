@@ -10,11 +10,6 @@ Rails.application.routes.draw do
      member do
        get "sort"
        
-  
-  
-
-       
-
      end
    end
  end
